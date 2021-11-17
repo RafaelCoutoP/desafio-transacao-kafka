@@ -3,17 +3,24 @@ package com.rafaelcdev.transacao.DTO;
 import com.rafaelcdev.transacao.entities.Estabelecimento;
 import com.rafaelcdev.transacao.entities.Transacao;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class TransacaoMessage {
-
+    @NotNull
     private UUID id;
+    @NotNull @Positive
     private BigDecimal valor;
-    private Estabelecimento estabelecimento;
+    @NotNull @Valid
+    private EstabelecimentoMessage estabelecimento;
+    @NotNull @Valid
     private CartaoMessage cartao;
+    @NotNull @PastOrPresent
     private LocalDateTime efetivadaEm;
 
     public UUID getId() {
@@ -32,11 +39,11 @@ public class TransacaoMessage {
         this.valor = valor;
     }
 
-    public Estabelecimento getEstabelecimento() {
+    public EstabelecimentoMessage getEstabelecimento() {
         return estabelecimento;
     }
 
-    public void setEstabelecimento(Estabelecimento estabelecimento) {
+    public void setEstabelecimento(EstabelecimentoMessage estabelecimento) {
         this.estabelecimento = estabelecimento;
     }
 

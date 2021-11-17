@@ -34,8 +34,4 @@ public class Estabelecimento {
     public String getEndereco() {
         return endereco;
     }
-
-    public Estabelecimento paraEstabelecimento() {
-        return new Estabelecimento(nome, cidade, endereco);
-    }
 }

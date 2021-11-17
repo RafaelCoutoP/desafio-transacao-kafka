@@ -1,10 +1,13 @@
 package com.rafaelcdev.transacao.DTO;
 
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class CartaoMessage {
 
+    @NotNull
     private UUID id;
+    @NotNull
     private String email;
 
     public UUID getId() {
