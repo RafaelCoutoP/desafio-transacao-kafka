@@ -19,7 +19,7 @@ public class TransacaoConsumer {
         this.transacaoRepository = transacaoRepository;
     }
     //Tentar por um ID
-    @KafkaListener(id = "false", topics = "transacoes")
+    @KafkaListener(id = "true", topics = "transacoes")
     public void transacaoConsumer(TransacaoMessage transacaoMessage){
         logger.info(
                 "Transacao id={} valor={} estabelecimento={}",
